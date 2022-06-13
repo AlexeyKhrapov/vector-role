@@ -1,0 +1,13 @@
+---
+- name: Install Vector package from rpm
+  become: true
+  ansible.builtin.yum:
+    name: "{{ vector_url_rpm }}"
+    state: present
+  when: ansible_facts['distribution'] == "CentOS"
+
+- name: Install Vector package from deb
+  become: true
+  ansible.builtin.apt:
+    deb: "{{ vector_url_deb }}"
+  when: (ansible_facts['distribution'] == "Ubuntu") or (ansible_facts['distribution'] == "Debian")

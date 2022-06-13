@@ -1,0 +1,30 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint: |
+  yamllint .
+  ansible-lint .
+platforms:
+  - name: ubuntu_focal
+    image: ubuntu:20.04
+    dockerfile: Dockerfile.j2
+    command: /usr/sbin/init
+    privileged: true
+provisioner:
+  name: ansible
+  options:
+    vv: true
+    D: true
+verifier:
+  name: ansible
+scenario:
+  test_sequence:
+    - dependency
+    - destroy
+    - create
+    - converge
+    - verify
+    - cleanup
+    - destroy
