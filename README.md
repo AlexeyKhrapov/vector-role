@@ -31,7 +31,7 @@ Including an example of how to use your role (for instance, with variables passe
 - name: Vector requirements
   src: git@github.com:AlexeyKhrapov/vector-role.git
   scm: git
-  version: "1.1.1"
+  version: "1.2.1"
   name: vector
 
 - name: Install Vector
