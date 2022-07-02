@@ -11,13 +11,12 @@ Requirements
 Role Variables
 --------------
 
-vector_ver: "0.21.2"
+- `vector_version`
+- `vector_url_rpm`
+- `vector_url_deb`
+- `vector_config`
 
-vector_download_dir: "/vectordistrib"
-
-vector_dir: "/vector"
-
-vector_data: "/var/lib/vector"
+The value of variables can be changed/viewed in the file [defaults/main.yml](./defaults/main.yml).
 
 Dependencies
 ------------
@@ -29,15 +28,21 @@ Example Playbook
 
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 ```yaml
-    - hosts: servers
-      roles:
-         - vector-role
+- name: Vector requirements
+  src: git@github.com:AlexeyKhrapov/vector-role.git
+  scm: git
+  version: "1.1.1"
+  name: vector
+
+- name: Install Vector
+  roles:
+    - vector
 ```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
