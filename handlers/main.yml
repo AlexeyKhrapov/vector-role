@@ -6,3 +6,8 @@
     name: vector
     state: started
     daemon_reload: true
+  when: 
+    - ansible_virtualization_type != "docker"
+    - ansible_virtualization_type != "podman"
+  tags:
+    - vector_start

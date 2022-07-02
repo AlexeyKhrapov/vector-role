@@ -1,5 +1,5 @@
 ---
-ddependency:
+dependency:
   name: galaxy
 driver:
   name: docker
@@ -38,7 +38,6 @@ verifier:
 scenario:
   test_sequence:
     - dependency
-    # - prepare # - not used for docker
     - lint
     - destroy
     - create
