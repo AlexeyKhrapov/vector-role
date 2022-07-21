@@ -4,4 +4,5 @@ yamllint==1.20.0
 lxml
 molecule==3.4.0
 molecule_podman
+molecule_docker
 jmespath
